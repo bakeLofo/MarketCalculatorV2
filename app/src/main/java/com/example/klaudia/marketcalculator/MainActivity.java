@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
                 Log.d("MainActivity", "balkshd");
                 Intent intent = new Intent(context, Money.class);
                 startActivity(intent);
-                    Log.d("bla", "blas");
+                    Log.d("bla", "blasa");
 
             }
         });
