@@ -9,10 +9,14 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.klaudia.marketcalculator.Model.Market;
 
-public class MyAdapter extends ArrayAdapter<String> {
+import java.util.List;
+
+
+public class MyAdapter extends ArrayAdapter<Market> {
     private final Activity context;
-    private final String[] names;
+    private final List<Market> names;
 
     static class ViewHolder {
         public TextView text;
@@ -20,8 +24,8 @@ public class MyAdapter extends ArrayAdapter<String> {
         public ImageView image;
     }
 
-    public MyAdapter(Activity context, String[] names) {
-        super(context, R.layout.single_item, names);
+    public MyAdapter(Activity context, List<Market> names) {
+        super(context, R.layout.single_item,names);
         this.context = context;
         this.names = names;
     }
