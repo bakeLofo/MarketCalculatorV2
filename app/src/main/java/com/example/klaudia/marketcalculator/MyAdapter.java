@@ -21,7 +21,7 @@ public class MyAdapter extends ArrayAdapter<Market> {
 
     static class ViewHolder {
         public TextView text;
-        public ImageButton button;
+       // public ImageButton button;
         public ImageView image;
     }
 
@@ -44,7 +44,7 @@ public class MyAdapter extends ArrayAdapter<Market> {
 
             viewHolder.image = (ImageView) rowView
                     .findViewById(R.id.icon);
-            viewHolder.button= (ImageButton) rowView.findViewById(R.id.star);
+            //viewHolder.button= (ImageButton) rowView.findViewById(R.id.star);
             rowView.setTag(viewHolder);
         }
 
@@ -53,7 +53,7 @@ public class MyAdapter extends ArrayAdapter<Market> {
         ViewHolder holder = (ViewHolder) rowView.getTag();
 
             holder.image.setImageResource(R.drawable.logo);
-            holder.button.setImageResource(R.drawable.empty);
+            //holder.button.setImageResource(R.drawable.empty);
             holder.text.setText(names.get(position).getTitle());
 
         //Log.d("MyAdapter","position"+names.get(0).getTitle());

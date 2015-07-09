@@ -84,4 +84,11 @@ public class ProductListActivity extends Activity {
         listDataChild.put(listDataHeader.get(2), comingSoon);
     }
 
+    public void minus(){
+
+    }
+    public void plus(){
+
+    }
+
 }
