@@ -12,7 +12,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.example.klaudia.marketcalculator.Controller.ArticleController;
 import com.example.klaudia.marketcalculator.Controller.MarketController;
 import com.example.klaudia.marketcalculator.Model.Market;
 
@@ -36,7 +38,16 @@ public class MainActivity extends ActionBarActivity {
 //        market.add(0, markecik);
 //        markecik.setTitle("cos");
         //Log.d("MainActivity", "title"+markecik.getTitle());
-        adapter = new MyAdapter(this, MarketController.getAllMarkets());
+       try{
+           adapter = new MyAdapter(this, MarketController.getAllMarkets());
+       }catch (Exception e){
+           Context context = getApplicationContext();
+           CharSequence text = "Connection problem!\n Check your internet connection.";
+           int duration = Toast.LENGTH_LONG;
+
+           Toast toast = Toast.makeText(context, text, duration);
+           toast.show();
+       }
        // adapter= new MyAdapter(this,market);
         context = getApplicationContext();
 

@@ -11,22 +11,22 @@ import java.util.List;
  */
 public class MarketController {
 
-    public static Market getMarketById(int id, List<Market> list){
-
-        Iterator i = list.iterator();
-
-        while(i.hasNext()){
-            Market node = (Market)i.next();
-            if(id == node.getId()){
-                return node;
-            }
-        }
-        return new Market();
-    }
+//    public static Market getMarketById(int id, List<Market> list){
+//
+//        Iterator i = list.iterator();
+//
+//        while(i.hasNext()){
+//            Market node = (Market)i.next();
+//            if(id == node.getId()){
+//                return node;
+//            }
+//        }
+//        return new Market();
+//    }
 
     public static List<Market> getAllMarkets(){
         ImportData data = new ImportData();
-        List<Market> list = data.downloadMarkets();
+        List<Market> list = data.downloadMarkets("http://genti.bildhosting.me/bildAndroid/ReadAllMarkets.php","market");
         return list;
     }
 }
