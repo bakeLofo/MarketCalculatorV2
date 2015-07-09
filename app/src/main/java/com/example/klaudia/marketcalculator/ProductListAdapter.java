@@ -89,9 +89,9 @@ public class ProductListAdapter extends BaseExpandableListAdapter {
         }
 
         TextView ListHeader = (TextView) convertView
-                .findViewById(R.id.product);
-       // ListHeader.setTypeface(null, Typeface.BOLD);
-        //ListHeader.setText(headerTitle);
+                .findViewById(R.id.ListHeader);
+        ListHeader.setTypeface(null, Typeface.BOLD);
+        ListHeader.setText(headerTitle);
 
         return convertView;
     }
