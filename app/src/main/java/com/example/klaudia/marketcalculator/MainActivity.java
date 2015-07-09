@@ -30,14 +30,14 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
         setSupportActionBar(toolbar);
-        ArrayList<Market> market= new ArrayList<Market>();
-        Market markecik= new Market();
-
-        market.add(0, markecik);
-        markecik.setTitle("cos");
-       // Log.d("MainActivity", "title"+markecik.getTitle());
-       // adapter = new MyAdapter(this, MarketController.getAllMarkets());
-        adapter= new MyAdapter(this,market);
+//        ArrayList<Market> market= new ArrayList<Market>();
+//        Market markecik= new Market();
+//
+//        market.add(0, markecik);
+//        markecik.setTitle("cos");
+        //Log.d("MainActivity", "title"+markecik.getTitle());
+        adapter = new MyAdapter(this, MarketController.getAllMarkets());
+       // adapter= new MyAdapter(this,market);
         context = getApplicationContext();
 
 
