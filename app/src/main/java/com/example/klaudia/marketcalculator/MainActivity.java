@@ -32,12 +32,12 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
         setSupportActionBar(toolbar);
-//        ArrayList<Market> market= new ArrayList<Market>();
-//        Market markecik= new Market();
-//
-//        market.add(0, markecik);
-//        markecik.setTitle("cos");
-        //Log.d("MainActivity", "title"+markecik.getTitle());
+       /*ArrayList<Market> market= new ArrayList<Market>();
+       Market markecik= new Market();
+
+        market.add(0, markecik);
+        markecik.setTitle("cos");
+        adapter= new MyAdapter(this,market);*/
        try{
            adapter = new MyAdapter(this, MarketController.getAllMarkets());
        }catch (Exception e){
@@ -48,7 +48,7 @@ public class MainActivity extends ActionBarActivity {
            Toast toast = Toast.makeText(context, text, duration);
            toast.show();
        }
-       // adapter= new MyAdapter(this,market);
+
         context = getApplicationContext();
 
 
