@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.example.klaudia.marketcalculator.Model.Market;
+import com.example.klaudia.marketcalculator.Model.Article;
 
 import org.apache.http.NameValuePair;
 import org.json.JSONArray;
@@ -51,17 +52,17 @@ public class ImportData {
         @Override
         protected JSONArray doInBackground(String... params) {
             ReadDatabase rb = new ReadDatabase();
-            JSONArray json = rb.getJSONFromUrl(params[0]);
+            JSONArray json = rb.getJSONFromUrl(params[0], params[1]);
             jsonArray  = json;
             return json;
         }
 
     }
 
-    public JSONArray getJson(){
+    public JSONArray getJson(String link, String table){
         TheTask task = new TheTask();
         try {
-            jsonArray = task.execute("http://genti.bildhosting.me/bildAndroid/ReadAllMarkets.php").get();
+            jsonArray = task.execute(link,table).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -70,10 +71,10 @@ public class ImportData {
         return  jsonArray;
     }
 
-    public List<Market> downloadMarkets(){
-        List<Market> markets = new LinkedList<>();
+    public List<Market> downloadMarkets(String link, String table){
+        List<Market> markets = new ArrayList<>();
 
-        JSONArray json = getJson(); //changit
+        JSONArray json = getJson(link,table); //changit
         for (int i=0; i<json.length(); i++){
             try {
                 JSONObject obj = json.getJSONObject(i);
@@ -95,6 +96,34 @@ public class ImportData {
         }
 
         return markets;
+    }
+
+    public List<Article> downloadArticles(String link, String table){
+        List<Article> articles = new ArrayList<>();
+
+        JSONArray json = getJson(link,table); //changit
+        for (int i=0; i<json.length(); i++){
+            try {
+                JSONObject obj = json.getJSONObject(i);
+
+
+
+                Article article = new Article();
+                article.setId(obj.getString("0"));
+                article.setTitle(obj.getString("1"));
+                article.setMarket_id(obj.getInt("4"));
+                article.setPrice(obj.getDouble("5"));
+                Log.i("article", article.getTitle());
+
+                articles.add(article);
+
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return articles;
     }
 
 }

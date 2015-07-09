@@ -1,7 +1,9 @@
 package com.example.klaudia.marketcalculator;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 
 /**
@@ -17,6 +19,11 @@ public class Money extends Activity {
       //  Button button = (Button) findViewById(R.id.submit_amount);
     }
 
+    public void goToBarcode(View v) {
+        Intent intent = new Intent(this, ProductListActivity.class);
+        startActivity(intent);
 
+
+    }
 
 }

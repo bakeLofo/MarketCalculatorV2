@@ -31,7 +31,7 @@ public class ReadDatabase {
     public ReadDatabase() {
     }
 
-    public JSONArray getJSONFromUrl(String url) {
+    public JSONArray getJSONFromUrl(String url, String table) {
         ArrayList<NameValuePair> nameValuePairs = new ArrayList<>();
         StringBuilder builder = new StringBuilder();
         HttpClient client = new DefaultHttpClient();
@@ -60,7 +60,7 @@ public class ReadDatabase {
         JSONObject j = null;
         try{
             jo = new JSONObject(builder.toString());
-            j = jo.getJSONObject("market");
+            j = jo.getJSONObject(table);
             Iterator x = j.keys();
             jarray = new JSONArray();
             while (x.hasNext()){

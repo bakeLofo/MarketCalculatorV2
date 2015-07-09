@@ -19,6 +19,6 @@ android:id="@+id/frame"    >
 
     </ListView>
 </LinearLayout>
-    
+
 
 </FrameLayout>
