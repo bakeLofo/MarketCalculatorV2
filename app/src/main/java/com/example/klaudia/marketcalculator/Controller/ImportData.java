@@ -71,7 +71,7 @@ public class ImportData {
     }
 
     public List<Market> downloadMarkets(){
-        List<Market> markets = new LinkedList<>();
+        List<Market> markets = new ArrayList<>();
 
         JSONArray json = getJson(); //changit
         for (int i=0; i<json.length(); i++){

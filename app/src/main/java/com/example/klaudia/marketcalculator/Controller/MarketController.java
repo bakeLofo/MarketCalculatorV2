@@ -1,7 +1,7 @@
 package com.example.klaudia.marketcalculator.Controller;
 
 import com.example.klaudia.marketcalculator.Model.Market;
-
+import com.example.klaudia.marketcalculator.Model.Market;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -25,6 +25,8 @@ public class MarketController {
     }
 
     public static List<Market> getAllMarkets(){
-        return new ArrayList<>();
+        ImportData data = new ImportData();
+        List<Market> list = data.downloadMarkets();
+        return list;
     }
 }
