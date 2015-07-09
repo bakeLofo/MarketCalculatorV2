@@ -14,7 +14,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.klaudia.marketcalculator.Controller.MarketController;
+import com.example.klaudia.marketcalculator.Model.Market;
 
+import java.util.ArrayList;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -28,8 +30,15 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
         setSupportActionBar(toolbar);
-        adapter = new MyAdapter(this, MarketController.getAllMarkets());
-         context = getApplicationContext();
+        ArrayList<Market> market= new ArrayList<Market>();
+        Market markecik= new Market();
+
+        market.add(0, markecik);
+        markecik.setTitle("cos");
+       // Log.d("MainActivity", "title"+markecik.getTitle());
+       // adapter = new MyAdapter(this, MarketController.getAllMarkets());
+        adapter= new MyAdapter(this,market);
+        context = getApplicationContext();
 
 
         ListView listview = (ListView) findViewById(R.id.main_list);
@@ -37,7 +46,6 @@ public class MainActivity extends ActionBarActivity {
        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
            public void onItemClick(AdapterView<?> adapter, View view, int position, long arg) {
-               Log.d("MainActivity", "balkshd");
                 Intent intent = new Intent(context, Money.class);
                 startActivity(intent);
 
